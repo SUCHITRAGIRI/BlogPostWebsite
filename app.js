@@ -11,7 +11,7 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 const app = express();
 //mongoDB connection 
-const mongoURL = process.env.URL;
+const mongoURL = process.env.ATLAS_URI;
 
 mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 //mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
