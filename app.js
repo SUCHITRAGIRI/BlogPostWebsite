@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const ejs = require("ejs");
+const ejs = require("ejs"); 
 const _ = require("lodash");
 const mongoose = require("mongoose");
 require('dotenv').config(); // very importent for .env setup
@@ -14,7 +14,7 @@ const app = express();
 const mongoURL = process.env.URL;
 
 mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
-
+//mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
 const postSchema = {
   title: String,
   content: String
@@ -29,10 +29,9 @@ app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   Post.find({}, (err, posts) => {
-
     res.render("home",
       {
-        homeStartingContent: homeStartingContent,
+        startingContent: homeStartingContent,
         posts: posts
       }
     );
